@@ -4,9 +4,10 @@
 const Car = require('../model/car.js');
 const router = require('../lib/router.js');
 const fs = require('fs-extra');
+
+
 let dbFile = (__dirname + '../storage/car.dat');
 let cars = {};
-
 
 
 let sendStatus = (res, status, text) => {
@@ -27,10 +28,10 @@ let sendJSON = (res, status, data) => {
 
 
 router.post('/api/cars', (req,res) => {
-  if ( ! req.body.make ){
+  if (! req.body.make){
     return sendStatus(res, 400, 'Error missing make');
   }
-  if ( ! req.body.model ){
+  if (! req.body.model){
     return sendStatus(res, 400, 'Error missing model');
   }
 
@@ -52,7 +53,7 @@ router.get('/api/cars', (req,res) => {
 
 
 
-  if ( id ){
+  if (id) {
     fs.readJson(dbFile)
     .then(allCars => {
       let car = allCars[id];
@@ -60,13 +61,13 @@ router.get('/api/cars', (req,res) => {
     })
     .catch(err => sendStatus(res, 404, err));
 
-    if(cars[id]){
+    if(cars[id]) {
       sendJSON(res, 200, cars[id]);
-    }else{
+    } else {
       sendStatus(res, 400, 'Error invalid car');
       console.log('test test');
     }
-  }else{
+  } else {
 
     fs.readJson(dbFile)
     .then(allCars => sendJSON(res,200,allCars))
@@ -81,7 +82,7 @@ router.delete('/api/cars', (req,res) => {
 
 
 
-  if ( id ){
+  if (id) {
     fs.readJson(dbFile)
       .then(allCars => {
         delete allCars[id];
