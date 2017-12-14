@@ -20,13 +20,15 @@
   },
   "homepage": "https://github.com/namgungssi/lab-09-persistence#readme",
   "dependencies": {
+    "fs-extra": "^5.0.0",
     "jest": "^21.2.1",
+    "mongodb": "^3.0.0-rc0",
     "superagent": "^3.8.2",
     "uuid": "^3.1.0"
   },
   "directories": {
     "lib": "lib",
-    "test": "test"
+    "test": "jest"
   },
   "devDependencies": {}
 }
