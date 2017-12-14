@@ -25,6 +25,7 @@ let JSON = (res, status, data) => {
 };
 
 
+
 router.post ('/api/notes', (req, res) => {
   if (! req.body.title) {
     return sendStatus (res, 400, 'Error missing title');
@@ -40,6 +41,7 @@ router.post ('/api/notes', (req, res) => {
 
   sendJSON (res, 200, note);
 });
+
 
 
 router.get ('/api/notes', (req, res) => {
