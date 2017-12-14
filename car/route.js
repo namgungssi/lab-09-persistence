@@ -1,17 +1,20 @@
 'use strict';
 
+
 const Car = require('../model/car.js');
 const router = require('../lib/router.js');
 const fs = require('fs-extra');
 let dbFile = (__dirname + '../storage/car.dat');
 let cars = {};
 
-// let allCars = {cars:cars};
+
+
 let sendStatus = (res, status, text) => {
   res.writeHead(status);
   res.write(text);
   res.end();
 };
+
 
 let sendJSON = (res, status, data) => {
   res.writeHead(status, {
@@ -21,6 +24,7 @@ let sendJSON = (res, status, data) => {
   res.end();
 
 };
+
 
 router.post('/api/cars', (req,res) => {
   if ( ! req.body.make ){
@@ -39,9 +43,8 @@ router.post('/api/cars', (req,res) => {
   .then(sendJSON(res,201, car))
 .catch(err => {sendStatus(res,500, err);});
 
-
-
 });
+
 
 router.get('/api/cars', (req,res) => {
 
@@ -70,6 +73,7 @@ router.get('/api/cars', (req,res) => {
     .catch(err => sendStatus(res,404, err));
   }
 });
+
 
 router.delete('/api/cars', (req,res) => {
 
