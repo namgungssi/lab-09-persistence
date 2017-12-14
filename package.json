@@ -18,5 +18,15 @@
   "bugs": {
     "url": "https://github.com/namgungssi/lab-09-persistence/issues"
   },
-  "homepage": "https://github.com/namgungssi/lab-09-persistence#readme"
+  "homepage": "https://github.com/namgungssi/lab-09-persistence#readme",
+  "dependencies": {
+    "jest": "^21.2.1",
+    "superagent": "^3.8.2",
+    "uuid": "^3.1.0"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {}
 }
